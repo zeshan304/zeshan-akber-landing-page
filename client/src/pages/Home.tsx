@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, BookOpen, Briefcase, Zap, ChevronRight, ExternalLink, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
 import { toast } from "sonner";
+import { coursesData, projectsData } from "@/data/coursesAndProjects";
 
 /**
  * Design System: Sustainable & Intelligent Construction Management
@@ -67,11 +69,14 @@ export default function Home() {
   const researchTeaching = [
     {
       category: "Courses",
-      items: [
-        { title: "Construction Management Fundamentals", level: "Undergraduate", students: "120+" },
-        { title: "Sustainable Infrastructure Design", level: "Graduate", students: "45+" },
-        { title: "Machine Learning in Construction", level: "Advanced", students: "30+" },
-      ],
+      items: coursesData.map((course) => ({
+        id: course.id,
+        title: course.title,
+        level: course.level,
+        code: course.code,
+        semester: course.semester,
+        year: course.year,
+      })),
     },
     {
       category: "Publications",
@@ -102,11 +107,14 @@ export default function Home() {
     },
     {
       category: "Industry Projects",
-      items: [
-        { title: "Smart Construction Site Monitoring System", partner: "Major Construction Firm", scope: "Real-time performance tracking" },
-        { title: "Sustainable Material Optimization", partner: "Concrete Supplier", scope: "Environmental impact reduction" },
-        { title: "Predictive Maintenance Framework", partner: "Infrastructure Developer", scope: "Cost & quality optimization" },
-      ],
+      items: projectsData
+        .filter((p) => p.type === "industry")
+        .map((project) => ({
+          id: project.id,
+          title: project.title,
+          partner: project.partner || project.funding,
+          scope: project.description.substring(0, 50) + "...",
+        })),
     },
   ];
 
@@ -253,17 +261,27 @@ export default function Home() {
                   <h3 className="text-2xl font-playfair font-bold text-foreground">{section.category}</h3>
                 </div>
                 <div className="space-y-4">
-                  {section.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="pb-4 border-b border-border last:border-b-0">
-                      <p className="font-lato font-semibold text-foreground text-sm">{item.title}</p>
-                      <p className="text-xs text-muted-foreground mt-1 font-raleway">
-                        {(item as any).level || (item as any).citations || (item as any).status}
-                        {(item as any).students && ` • ${(item as any).students}`}
-                        {(item as any).year && ` • ${(item as any).year}`}
-                        {(item as any).funding && ` • ${(item as any).funding}`}
-                      </p>
-                    </div>
-                  ))}
+                  {section.items.map((item, itemIdx) => {
+                    const isCourse = (item as any).code !== undefined;
+                    return (
+                      <div key={itemIdx} className="pb-4 border-b border-border last:border-b-0">
+                        {isCourse ? (
+                          <Link href={`/course/${(item as any).id}`} className="font-lato font-semibold text-primary hover:text-primary/80 text-sm cursor-pointer transition-colors">
+                            {item.title}
+                          </Link>
+                        ) : (
+                          <p className="font-lato font-semibold text-foreground text-sm">{item.title}</p>
+                        )}
+                        <p className="text-xs text-muted-foreground mt-1 font-raleway">
+                          {(item as any).code && `${(item as any).code} • ${(item as any).level} • ${(item as any).semester} ${(item as any).year}`}
+                          {(item as any).level && !((item as any).code) && (item as any).level}
+                          {(item as any).students && ` • ${(item as any).students}`}
+                          {(item as any).year && ` • ${(item as any).year}`}
+                          {(item as any).funding && ` • ${(item as any).funding}`}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </Card>
             ))}
@@ -291,17 +309,26 @@ export default function Home() {
                   <h3 className="text-2xl font-playfair font-bold text-foreground">{section.category}</h3>
                 </div>
                 <div className="space-y-4">
-                  {section.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="pb-4 border-b border-border last:border-b-0">
-                      <p className="font-lato font-semibold text-foreground text-sm">{item.title}</p>
-                      <p className="text-xs text-muted-foreground mt-1 font-raleway">
-                        {(item as any).org || (item as any).partner}
-                      </p>
-                      <p className="text-xs text-primary mt-1 font-raleway font-semibold">
-                        {(item as any).period || (item as any).scope}
-                      </p>
-                    </div>
-                  ))}
+                  {section.items.map((item, itemIdx) => {
+                    const isProject = (item as any).id !== undefined && section.category === "Industry Projects";
+                    return (
+                      <div key={itemIdx} className="pb-4 border-b border-border last:border-b-0">
+                        {isProject ? (
+                          <Link href={`/project/${(item as any).id}`} className="font-lato font-semibold text-primary hover:text-primary/80 text-sm cursor-pointer transition-colors">
+                            {item.title}
+                          </Link>
+                        ) : (
+                          <p className="font-lato font-semibold text-foreground text-sm">{item.title}</p>
+                        )}
+                        <p className="text-xs text-muted-foreground mt-1 font-raleway">
+                          {(item as any).org || (item as any).partner}
+                        </p>
+                        <p className="text-xs text-primary mt-1 font-raleway font-semibold">
+                          {(item as any).period || (item as any).scope}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </Card>
             ))}
