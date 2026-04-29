@@ -20,6 +20,15 @@ export default function Home() {
   });
 
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState("research");
+
+  const scrollToSection = (sectionId: string) => {
+    setActiveTab(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -103,6 +112,44 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Sticky Navigation Tabs */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-border shadow-md">
+        <div className="container mx-auto px-4 flex items-center justify-center">
+          <div className="flex gap-1">
+            <button
+              onClick={() => scrollToSection("research")}
+              className={`px-6 py-4 font-lato font-semibold text-sm transition-all border-b-2 ${
+                activeTab === "research"
+                  ? "text-primary border-b-primary"
+                  : "text-muted-foreground border-b-transparent hover:text-foreground"
+              }`}
+            >
+              Research & Teaching
+            </button>
+            <button
+              onClick={() => scrollToSection("industry")}
+              className={`px-6 py-4 font-lato font-semibold text-sm transition-all border-b-2 ${
+                activeTab === "industry"
+                  ? "text-primary border-b-primary"
+                  : "text-muted-foreground border-b-transparent hover:text-foreground"
+              }`}
+            >
+              Industry & Collaboration
+            </button>
+            <button
+              onClick={() => scrollToSection("updates")}
+              className={`px-6 py-4 font-lato font-semibold text-sm transition-all border-b-2 ${
+                activeTab === "updates"
+                  ? "text-primary border-b-primary"
+                  : "text-muted-foreground border-b-transparent hover:text-foreground"
+              }`}
+            >
+              Latest Updates
+            </button>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
         {/* Decorative elements */}
@@ -187,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* Research & Teaching Section */}
-      <section className="py-20 bg-white">
+      <section id="research" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-4">Research & Teaching</h2>
@@ -225,7 +272,7 @@ export default function Home() {
       </section>
 
       {/* Industry & Collaboration Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+      <section id="industry" className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-4">Industry & Collaboration</h2>
@@ -263,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* Latest Updates Section */}
-      <section className="py-20 bg-white">
+      <section id="updates" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-4">Latest Updates</h2>
