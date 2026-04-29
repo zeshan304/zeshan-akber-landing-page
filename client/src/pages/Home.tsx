@@ -557,16 +557,16 @@ export default function Home() {
                   <Linkedin className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/Zeshanakber304"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
-                  title="Twitter"
+                  title="X (Twitter)"
                 >
                   <Twitter className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
                 </a>
                 <a
-                  href="https://www.researchgate.net"
+                  href="https://www.researchgate.net/profile/Muhammad-Akber-4?ev=hdr_xprf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
