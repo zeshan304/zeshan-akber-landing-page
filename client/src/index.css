@@ -43,41 +43,41 @@
 }
 
 :root {
-  /* Academic Elegance with Islamic Heritage Design */
-  /* Primary: Forest Green (#1a5d3a), Secondary: Cream (#f5f1e8), Accent: Gold (#d4af37) */
-  --primary: #1a5d3a;
-  --primary-foreground: #f5f1e8;
-  --sidebar-primary: #1a5d3a;
-  --sidebar-primary-foreground: #f5f1e8;
+  /* Sustainable & Intelligent Construction Management Design */
+  /* Primary: Professional Blue (#0066cc), Secondary: Forest Green (#2d8659), Tertiary: Clean White (#ffffff) */
+  --primary: #0066cc;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #0066cc;
+  --sidebar-primary-foreground: #ffffff;
   --chart-1: #2d8659;
-  --chart-2: #1a5d3a;
-  --chart-3: #d4af37;
-  --chart-4: #c9a227;
-  --chart-5: #b89520;
+  --chart-2: #0066cc;
+  --chart-3: #00a86b;
+  --chart-4: #004d99;
+  --chart-5: #1a5d3a;
   --radius: 0.65rem;
-  --background: #f5f1e8;
-  --foreground: #2c2c2c;
+  --background: #f8f9fa;
+  --foreground: #1a1a1a;
   --card: #ffffff;
-  --card-foreground: #2c2c2c;
+  --card-foreground: #1a1a1a;
   --popover: #ffffff;
-  --popover-foreground: #2c2c2c;
-  --secondary: #e8dcc8;
-  --secondary-foreground: #2c2c2c;
-  --muted: #d4c5b0;
-  --muted-foreground: #5a5a5a;
-  --accent: #d4af37;
-  --accent-foreground: #1a5d3a;
+  --popover-foreground: #1a1a1a;
+  --secondary: #e8f0f8;
+  --secondary-foreground: #1a1a1a;
+  --muted: #d0d8e0;
+  --muted-foreground: #4a4a4a;
+  --accent: #2d8659;
+  --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --destructive-foreground: #f5f1e8;
-  --border: #e8dcc8;
+  --destructive-foreground: #ffffff;
+  --border: #e0e6ed;
   --input: #ffffff;
-  --ring: #1a5d3a;
-  --sidebar: #f5f1e8;
-  --sidebar-foreground: #2c2c2c;
-  --sidebar-accent: #d4af37;
-  --sidebar-accent-foreground: #1a5d3a;
-  --sidebar-border: #e8dcc8;
-  --sidebar-ring: #1a5d3a;
+  --ring: #0066cc;
+  --sidebar: #f8f9fa;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-accent: #2d8659;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e0e6ed;
+  --sidebar-ring: #0066cc;
 }
 
 .dark {
