@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, BookOpen, Briefcase, Zap, ChevronRight, ExternalLink, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, BookOpen, Briefcase, Zap, ChevronRight, ExternalLink, ArrowRight, Linkedin, Twitter, Globe } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
@@ -509,36 +509,80 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-primary-foreground py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="font-lato text-sm mb-4">
-            © 2026 Muhammad Zeshan Akber. All rights reserved.
-          </p>
-          <div className="flex justify-center gap-6">
-            <a
-              href="https://scholar.google.com/citations?user=mFiSbPIAAAAJ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm font-raleway"
-            >
-              Google Scholar
-            </a>
-            <a
-              href="https://orcid.org/0000-0003-1754-1527"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm font-raleway"
-            >
-              ORCID
-            </a>
-            <a
-              href="https://www.linkedin.com/in/muhammad-zeshan-akber-5998a025/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm font-raleway"
-            >
-              LinkedIn
-            </a>
+      <footer className="bg-foreground text-primary-foreground py-12">
+        <div className="container mx-auto px-4">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Brand */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-playfair font-bold mb-2">Muhammad Zeshan Akber</h3>
+              <p className="text-primary-foreground/70 text-sm font-lato">Academic Leader • Industry Innovator</p>
+              <p className="text-primary-foreground/60 text-xs font-raleway mt-1">Sustainable & Intelligent Construction Management</p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="text-center">
+              <h4 className="font-raleway font-semibold text-sm mb-4">Research & Resources</h4>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://scholar.google.com/citations?user=mFiSbPIAAAAJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm font-lato"
+                >
+                  Google Scholar
+                </a>
+                <a
+                  href="https://orcid.org/0000-0003-1754-1527"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm font-lato"
+                >
+                  ORCID Profile
+                </a>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="text-center md:text-right">
+              <h4 className="font-raleway font-semibold text-sm mb-4">Connect With Me</h4>
+              <div className="flex justify-center md:justify-end gap-4">
+                <a
+                  href="https://www.linkedin.com/in/muhammad-zeshan-akber-5998a025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+                  title="Twitter"
+                >
+                  <Twitter className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
+                </a>
+                <a
+                  href="https://www.researchgate.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors group"
+                  title="ResearchGate"
+                >
+                  <Globe className="h-5 w-5 text-primary-foreground group-hover:text-primary transition-colors" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-primary-foreground/20 pt-8">
+            <p className="text-center text-primary-foreground/70 text-xs font-raleway">
+              © 2026 Muhammad Zeshan Akber. All rights reserved. | Powered by Manus
+            </p>
           </div>
         </div>
       </footer>
