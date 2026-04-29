@@ -6,8 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-
 permissions:
   contents: read
   pages: write
