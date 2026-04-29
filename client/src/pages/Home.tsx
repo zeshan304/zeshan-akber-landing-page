@@ -221,20 +221,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Visual */}
+            {/* Right Visual - Profile Picture */}
             <div className="hidden lg:flex justify-center">
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-                <div
-                  className="relative w-80 h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-br from-primary/10 to-accent/10"
-                  style={{
-                    backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663611545825/PjDc6XjX9YDtxtRWMcCUPS/research_visual_abstract-AbkUqaZ5HpUDPes7F7vcah.webp')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-                </div>
+                <img
+                  src="/manus-storage/profilepic_32918e6c.webp"
+                  alt="Muhammad Zeshan Akber"
+                  className="relative w-80 h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white object-cover"
+                />
               </div>
             </div>
           </div>
